@@ -33,6 +33,7 @@ function exerciseOne(arrayOfPeople) {
  * All of your HTML should go inside the Div tag with the id "content".
  *
  */
+
 function exerciseTwo(shopping) {
   const list = document.createElement("ul");
   const contentDiv = document.querySelector("#content");
