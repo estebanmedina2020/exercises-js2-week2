@@ -13,8 +13,17 @@
  *      .....
  * </div>
  */
+
 function exerciseOne(arrayOfPeople) {
-  let content = document.querySelector("#content");
+  const contentDiv = document.querySelector("#content");
+  arrayOfPeople.forEach(function (person) {
+    const nameHeader = document.createElement("h1");
+    const jobHeader = document.createElement("h2");
+    contentDiv.appendChild(nameHeader);
+    contentDiv.appendChild(jobHeader);
+    nameHeader.innerText = person.name;
+    jobHeader.innerText = person.job;
+  });
 }
 
 /**
@@ -25,7 +34,14 @@ function exerciseOne(arrayOfPeople) {
  *
  */
 function exerciseTwo(shopping) {
-  //Write your code in here
+  const list = document.createElement("ul");
+  const contentDiv = document.querySelector("#content");
+  contentDiv.appendChild(list);
+  for (let i = 0; i > shopping.length; i++) {
+    const listElement = document.createElement("li");
+    list.appendChild(listElement);
+    listElement.innerText = shopping[i];
+  }
 }
 
 /**
@@ -74,7 +90,7 @@ function exerciseThree(books) {
 let people = [
   { name: "Chris", job: "Teacher" },
   { name: "Joanna", job: "Student" },
-  { name: "Boris", job: "Prime Minister" }
+  { name: "Boris", job: "Prime Minister" },
 ];
 
 exerciseOne(people);
@@ -87,18 +103,18 @@ const books = [
   {
     title: "The Design of Everyday Things",
     author: "Don Norman",
-    alreadyRead: false
+    alreadyRead: false,
   },
   {
     title: "The Most Human Human",
     author: "Brian Christian",
-    alreadyRead: true
+    alreadyRead: true,
   },
   {
     title: "The Pragmatic Programmer",
     author: "Andrew Hunt",
-    alreadyRead: true
-  }
+    alreadyRead: true,
+  },
 ];
 
 exerciseThree(books);
