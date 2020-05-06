@@ -37,11 +37,11 @@ function exerciseOne(arrayOfPeople) {
 function exerciseTwo(shopping) {
   const list = document.createElement("ul");
   const contentDiv = document.querySelector("#content");
-  contentDiv.appendChild(list);
-  for (let i = 0; i > shopping.length; i++) {
+  for (let i = 0; i < shopping.length; i++) {
     const listElement = document.createElement("li");
-    list.appendChild(listElement);
+    contentDiv.appendChild(list);
     listElement.innerText = shopping[i];
+    list.appendChild(listElement);
   }
 }
 
@@ -75,8 +75,36 @@ function exerciseTwo(shopping) {
     The end result should look something like this: https://hyf-js2-week1-makeme-ex1-demo.herokuapp.com/
 **/
 function exerciseThree(books) {
-  //Write your code in here
+  books[0].coverLink =
+    "https://images-na.ssl-images-amazon.com/images/I/410RTQezHYL._SY291_BO1,204,203,200_QL40_ML2_.jpg";
+  books[1].coverLink =
+    "https://images-na.ssl-images-amazon.com/images/I/410RTQezHYL._SY291_BO1,204,203,200_QL40_ML2_.jpg";
+  books[2].coverLink =
+    "https://images-na.ssl-images-amazon.com/images/I/410RTQezHYL._SY291_BO1,204,203,200_QL40_ML2_.jpg";
+
+  const contentDiv = document.querySelector("#content");
+  const bookList = document.createElement("ul");
+  contentDiv.appendChild(bookList);
+  books.forEach(function (book, index) {
+    const bookDetailsli = document.createElement("li");
+    const bookDetailsParagraph = document.createElement("p");
+    const bookImage = document.createElement("img");
+    if (book.alreadyRead) {
+      bookDetailsli.style.background = "green";
+    } else {
+      bookDetailsli.style.background = "red";
+    }
+    bookImage.setAttribute("src", book.coverLink);
+    bookList.appendChild(bookDetailsli);
+    bookDetailsli.appendChild(bookDetailsParagraph);
+    bookDetailsli.appendChild(bookImage);
+
+    bookDetailsParagraph.innerText = book.title + " - " + book.author;
+    bookDetailsParagraph.id = "book-" + index;
+  });
 }
+
+//for (let i = 0; i < books.length; i++)
 
 //
 //
